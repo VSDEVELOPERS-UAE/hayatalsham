@@ -2,17 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>HAYAT AL SHAM FOODSTUFF TRADING L.L.C</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-:root{
-    --primary: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-    --accent:#ff9f43;
-}
-
 *{
     margin:0;
     padding:0;
@@ -21,281 +16,245 @@
 }
 
 body{
-    background:#f4f6f9;
+    background:#fff;
     color:#333;
 }
 
-/* NAVBAR */
-nav{
-    background:rgba(15,32,39,0.95);
-    backdrop-filter:blur(10px);
-    padding:15px 30px;
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    position:sticky;
+/* ===== TOP BAR ===== */
+.topbar{
+    position:fixed;
     top:0;
+    width:100%;
+    height:70px;
+    background:#f6f6f6;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 20px;
     z-index:1000;
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
 }
 
-nav a{
-    color:white;
+.logo{
+    font-size:24px;
+    font-weight:800;
+    color:#8a5a2b;
+}
+
+.logo span{
+    color:#c48a3d;
+}
+
+.menu-btn{
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* ===== MOBILE MENU ===== */
+.mobile-menu{
+    position:fixed;
+    top:0;
+    right:-100%;
+    width:100%;
+    height:100vh;
+    background:#ffffff;
+    z-index:2000;
+    padding:90px 30px;
+    transition:0.4s ease;
+}
+
+.mobile-menu.active{
+    right:0;
+}
+
+.mobile-menu a{
+    display:block;
     text-decoration:none;
-    font-weight:500;
-    position:relative;
-    transition:0.3s;
+    color:#333;
+    font-size:22px;
+    font-weight:600;
+    margin-bottom:30px;
 }
 
-nav a::after{
+.mobile-menu a:hover{
+    color:#c48a3d;
+}
+
+.close-btn{
+    position:absolute;
+    top:20px;
+    right:25px;
+    font-size:32px;
+    cursor:pointer;
+}
+
+/* ===== HERO ===== */
+.hero{
+    height:100vh;
+    background:url('https://uaqftz.gov.ae/gallery/Spices%20Trading.jpg') center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    position:relative;
+    padding:20px;
+}
+
+.hero::after{
     content:'';
     position:absolute;
-    width:0%;
-    height:2px;
-    bottom:-5px;
-    left:0;
-    background:var(--accent);
-    transition:0.4s;
+    inset:0;
+    background:rgba(0,0,0,0.65);
 }
 
-nav a:hover::after{
-    width:100%;
+.hero-content{
+    position:relative;
+    z-index:2;
+    animation:fadeUp 1s ease;
 }
 
-nav a:hover{
-    color:var(--accent);
+.hero h1{
+    font-size:34px;
+    font-weight:800;
 }
 
-/* COMPANY NAME HEADER */
-.company-header{
-    text-align:center;
-    padding:40px 20px;
-    background:var(--primary);
-    color:white;
+.hero h2{
+    font-size:22px;
+    margin:12px 0;
 }
 
-.company-header h1{
-    font-size:1.8rem;
-    font-weight:700;
+.hero p{
+    font-size:18px;
+    font-style:italic;
 }
 
-/* SECTION */
+/* ===== SECTIONS ===== */
 section{
     display:none;
-    padding:50px 20px;
-    animation:fadeUp 0.8s ease;
+    padding:60px 20px;
 }
 
 section.active{
     display:block;
 }
 
-.card{
-    background:white;
-    padding:30px;
-    border-radius:18px;
-    box-shadow:0 15px 35px rgba(0,0,0,0.1);
-    max-width:900px;
-    margin:auto;
+section h2{
+    text-align:center;
+    font-size:28px;
+    margin-bottom:20px;
 }
 
-/* STEAM ANIMATION */
-.steam-container{
-    position:relative;
-    height:180px;
-    margin-bottom:30px;
-    display:flex;
-    justify-content:center;
-    align-items:flex-end;
+.section-content{
+    text-align:center;
+    line-height:1.8;
 }
 
-.bowl{
-    width:150px;
-    height:60px;
-    background:#444;
-    border-radius:0 0 100px 100px;
-    position:relative;
-}
-
-.steam{
-    position:absolute;
-    bottom:60px;
-    width:8px;
-    height:80px;
-    background:rgba(255,255,255,0.5);
+/* ===== FLOAT BUTTONS ===== */
+.float-btn{
+    position:fixed;
+    left:15px;
+    width:55px;
+    height:55px;
     border-radius:50%;
-    animation:steamUp 3s infinite ease-in-out;
-}
-
-.steam:nth-child(2){ left:60px; animation-delay:0.5s;}
-.steam:nth-child(3){ left:80px; animation-delay:1s;}
-.steam:nth-child(4){ left:100px; animation-delay:1.5s;}
-
-@keyframes steamUp{
-    0%{ transform:translateY(0) scaleX(1); opacity:0.6;}
-    50%{ opacity:1;}
-    100%{ transform:translateY(-120px) scaleX(1.5); opacity:0;}
-}
-
-/* MENU GRID */
-.menu-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-    gap:15px;
-    margin-top:20px;
-}
-
-.menu-item{
-    border-radius:16px;
-    overflow:hidden;
-    position:relative;
-    box-shadow:0 10px 25px rgba(0,0,0,0.15);
-}
-
-.menu-item img{
-    width:100%;
-    height:160px;
-    object-fit:cover;
-    transition:0.5s;
-}
-
-.menu-item:hover img{
-    transform:scale(1.1);
-}
-
-.menu-item span{
-    position:absolute;
-    bottom:0;
-    width:100%;
-    background:rgba(0,0,0,0.6);
+    display:flex;
+    align-items:center;
+    justify-content:center;
     color:white;
-    text-align:center;
-    padding:8px;
+    font-size:22px;
+    z-index:999;
 }
 
-/* CONTACT */
-.contact-info p{
-    margin:12px 0;
-    line-height:1.6;
+.call-btn{
+    bottom:90px;
+    background:#e53935;
 }
 
-/* FOOTER */
-footer{
-    background:#0f2027;
-    color:white;
-    text-align:center;
-    padding:20px;
-    margin-top:40px;
-    font-size:0.85rem;
+.whatsapp-btn{
+    bottom:20px;
+    background:#25d366;
 }
 
-/* ANIMATION */
+/* ===== ANIMATION ===== */
 @keyframes fadeUp{
-    from{opacity:0;transform:translateY(30px)}
+    from{opacity:0;transform:translateY(40px)}
     to{opacity:1;transform:translateY(0)}
 }
 </style>
 
 <script>
+function openMenu(){
+    document.getElementById("menu").classList.add("active");
+}
+
+function closeMenu(){
+    document.getElementById("menu").classList.remove("active");
+}
+
 function showPage(id){
     document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
     document.getElementById(id).classList.add("active");
+    closeMenu();
 }
+
 window.onload=()=>showPage('home');
 </script>
 </head>
 
 <body>
 
-<nav>
-    <a onclick="showPage('home')">Home</a>
-    <a onclick="showPage('about')">About</a>
-    <a onclick="showPage('menu')">Menu</a>
-    <a onclick="showPage('contact')">Contact Us</a>
-</nav>
-
-<div class="company-header">
-    <h1>HAYAT AL SHAM FOODSTUFF TRADING L.L.C</h1>
+<!-- TOP BAR -->
+<div class="topbar">
+    <div class="logo">HAYAT <span>AL SHAM</span></div>
+    <div class="menu-btn" onclick="openMenu()">☰</div>
 </div>
 
-<section id="home">
-    <div class="card">
-        <div class="steam-container">
-            <div class="bowl"></div>
-            <div class="steam" style="left:40px;"></div>
-            <div class="steam"></div>
-            <div class="steam"></div>
-            <div class="steam"></div>
-        </div>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="menu">
+    <div class="close-btn" onclick="closeMenu()">✕</div>
+    <a onclick="showPage('home')">Home</a>
+    <a onclick="showPage('about')">About Us</a>
+    <a onclick="showPage('contact')">Contact Us</a>
+</div>
 
-        <h2>Welcome to Hayat Al Sham</h2>
-        <p>
-            Premium foodstuff trading company delivering quality and excellence
-            across Dubai and the UAE market.
-        </p>
+<!-- HOME -->
+<section id="home" class="hero active">
+    <div class="hero-content">
+        <h1>Best Foodstuff Trading Company In</h1>
+        <h2>Dubai</h2>
+        <p>Premium Quality Foodstuff Trading</p>
     </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about">
-    <div class="card">
-        <h2>About Us</h2>
+    <h2>About Us</h2>
+    <div class="section-content">
         <p>
-            We are a Dubai-based foodstuff trading company located in Dubai Industrial City.
-            Our mission is to supply high-quality food products with reliability,
-            professionalism, and long-term partnership commitment.
+            HAYAT AL SHAM FOODSTUFF TRADING L.L.C is a Dubai-based company
+            specializing in premium quality foodstuff trading with a focus
+            on trust, reliability, and long-term partnerships.
         </p>
     </div>
 </section>
 
-<section id="menu">
-    <div class="card">
-        <h2>Our Products</h2>
-        <div class="menu-grid">
-            <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1604908554266-9e9cba9a3e96">
-                <span>Fresh Food</span>
-            </div>
-            <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1586201375754-45e4b7a31b55">
-                <span>Frozen Items</span>
-            </div>
-            <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1617196038435-53f3b8a35a5c">
-                <span>Dry Food</span>
-            </div>
-            <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1542838132-92c53300491e">
-                <span>Bulk Supplies</span>
-            </div>
-            <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1585238342028-4bbc1f62c6d0">
-                <span>Wholesale</span>
-            </div>
-            <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1600628422019-56fdb1e4c14f">
-                <span>Distribution</span>
-            </div>
-        </div>
-    </div>
-</section>
-
+<!-- CONTACT -->
 <section id="contact">
-    <div class="card contact-info">
-        <h2>Contact Us</h2>
-        <p><strong>📍 Location:</strong><br>
+    <h2>Contact Us</h2>
+    <div class="section-content">
+        <p><strong>📍 Address</strong><br>
         I-SH/R 10, Block I, Saih Shuaib 2,<br>
-        Dubai Industrial City, Dubai, U.A.E</p>
+        Dubai Industrial City, Dubai, U.A.E</p><br>
 
-        <p><strong>📞 Phone:</strong><br>
-        +971 58 235 9196</p>
+        <p><strong>📞 Phone</strong><br>
+        +971 58 235 9196</p><br>
 
-        <p><strong>✉ Email:</strong><br>
+        <p><strong>✉ Email</strong><br>
         hayatalshamfoodstuff@gmail.com</p>
     </div>
 </section>
 
-<footer>
-    © 2026 HAYAT AL SHAM FOODSTUFF TRADING L.L.C — Dubai, U.A.E
-</footer>
-
+<!-- FLOAT BUTTONS -->
+<a href="https://wa.me/971582359196" class="float-btn whatsapp-btn">💬</a>
 </body>
 </html>
