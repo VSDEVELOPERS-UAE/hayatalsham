@@ -2,259 +2,198 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>HAYAT AL SHAM FOODSTUFF TRADING L.L.C</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>Hayat Al Sham Foodstuff Trading</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins;
 }
 
 body{
-    background:#fff;
-    color:#333;
+background:#fafafa;
+color:#333;
 }
 
-/* ===== TOP BAR ===== */
-.topbar{
-    position:fixed;
-    top:0;
-    width:100%;
-    height:70px;
-    background:#f6f6f6;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 20px;
-    z-index:1000;
-    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+/* NAVBAR */
+
+nav{
+background:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 60px;
+box-shadow:0 3px 10px rgba(0,0,0,0.08);
 }
 
 .logo{
-    font-size:24px;
-    font-weight:800;
-    color:#8a5a2b;
+font-size:22px;
+font-weight:700;
+color:#a36b2a;
 }
 
-.logo span{
-    color:#c48a3d;
+.menu a{
+margin-left:30px;
+text-decoration:none;
+color:#333;
+font-weight:500;
 }
 
-.menu-btn{
-    font-size:28px;
-    cursor:pointer;
+.menu a:hover{
+color:#a36b2a;
 }
 
-/* ===== MOBILE MENU ===== */
-.mobile-menu{
-    position:fixed;
-    top:0;
-    right:-100%;
-    width:100%;
-    height:100vh;
-    background:#ffffff;
-    z-index:2000;
-    padding:90px 30px;
-    transition:0.4s ease;
+/* SLIDER */
+
+.slider{
+width:100%;
+height:500px;
+overflow:hidden;
+position:relative;
 }
 
-.mobile-menu.active{
-    right:0;
+.slides{
+display:flex;
+width:400%;
+transition:30s;
 }
 
-.mobile-menu a{
-    display:block;
-    text-decoration:none;
-    color:#333;
-    font-size:22px;
-    font-weight:600;
-    margin-bottom:30px;
+.slide{
+width:100%;
+padding:40px;
+display:grid;
+grid-template-columns:1fr 1fr;
+grid-gap:20px;
 }
 
-.mobile-menu a:hover{
-    color:#c48a3d;
+.slide img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:10px;
 }
 
-.close-btn{
-    position:absolute;
-    top:20px;
-    right:25px;
-    font-size:32px;
-    cursor:pointer;
+/* ABOUT SECTION */
+
+.services{
+padding:80px 10%;
+text-align:center;
 }
 
-/* ===== HERO ===== */
-.hero{
-    height:100vh;
-    background:url('https://uaqftz.gov.ae/gallery/Spices%20Trading.jpg') center/cover no-repeat;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    color:white;
-    position:relative;
-    padding:20px;
+.services h2{
+font-size:32px;
+margin-bottom:20px;
 }
 
-.hero::after{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,0.65);
+.services p{
+line-height:1.8;
+font-size:16px;
+max-width:900px;
+margin:auto;
 }
 
-.hero-content{
-    position:relative;
-    z-index:2;
-    animation:fadeUp 1s ease;
+footer{
+text-align:center;
+padding:20px;
+background:#222;
+color:white;
+margin-top:60px;
 }
 
-.hero h1{
-    font-size:34px;
-    font-weight:800;
-}
-
-.hero h2{
-    font-size:22px;
-    margin:12px 0;
-}
-
-.hero p{
-    font-size:18px;
-    font-style:italic;
-}
-
-/* ===== SECTIONS ===== */
-section{
-    display:none;
-    padding:60px 20px;
-}
-
-section.active{
-    display:block;
-}
-
-section h2{
-    text-align:center;
-    font-size:28px;
-    margin-bottom:20px;
-}
-
-.section-content{
-    text-align:center;
-    line-height:1.8;
-}
-
-/* ===== FLOAT BUTTONS ===== */
-.float-btn{
-    position:fixed;
-    left:15px;
-    width:55px;
-    height:55px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:white;
-    font-size:22px;
-    z-index:999;
-}
-
-.call-btn{
-    bottom:90px;
-    background:#e53935;
-}
-
-.whatsapp-btn{
-    bottom:20px;
-    background:#25d366;
-}
-
-/* ===== ANIMATION ===== */
-@keyframes fadeUp{
-    from{opacity:0;transform:translateY(40px)}
-    to{opacity:1;transform:translateY(0)}
-}
 </style>
-
-<script>
-function openMenu(){
-    document.getElementById("menu").classList.add("active");
-}
-
-function closeMenu(){
-    document.getElementById("menu").classList.remove("active");
-}
-
-function showPage(id){
-    document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
-    document.getElementById(id).classList.add("active");
-    closeMenu();
-}
-
-window.onload=()=>showPage('home');
-</script>
 </head>
 
 <body>
 
-<!-- TOP BAR -->
-<div class="topbar">
-    <div class="logo">HAYAT <span>AL SHAM</span></div>
-    <div class="menu-btn" onclick="openMenu()">☰</div>
+<nav>
+<div class="logo">HAYATALSHAM FOOD STUF</div>
+
+<div class="menu">
+<a href="gallery.html">Products Gallery</a>
+<a href="contact.html">Contact Us</a>
+</div>
+</nav>
+
+
+<!-- SLIDER -->
+
+<div class="slider">
+
+<div class="slides" id="slides">
+
+<!-- SLIDE 1 SPICES -->
+
+<div class="slide">
+<img src="https://static.vecteezy.com/system/resources/thumbnails/022/787/320/small/nice-composition-of-date-fruits-generative-ai-png.png">
+<img src="https://mangoes.ae/cdn/shop/files/Macadamia-Nuts-with-shell-Dubai-Sharjah-Ajman-Abu-Dhabi-UAE-7.jpg?v=1772665806&width=1000">
+<img src="https://krishival.com/cdn/shop/files/Normal_3.jpg?v=1700222878&width=5205">
+<img src="https://d3kgrlupo77sg7.cloudfront.net/media/chococoorgspice.com/images/products/whole-almond-coorg-almond-buy-online.20220910001647.webp">
 </div>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="menu">
-    <div class="close-btn" onclick="closeMenu()">✕</div>
-    <a onclick="showPage('home')">Home</a>
-    <a onclick="showPage('about')">About Us</a>
-    <a onclick="showPage('contact')">Contact Us</a>
+
+<!-- SLIDE 4 RICE & SEEDS -->
+
+<div class="slide">
+<img src="https://png.pngtree.com/thumb_back/fh260/background/20220311/pngtree-black-pepper-hd-photography-material-image_1031696.jpg">
+<img src="https://t4.ftcdn.net/jpg/01/02/58/91/360_F_102589163_hk02O92vzEYP0rZbVyvDTbkje1GaUDk1.jpg">
+<img src="">
+<img src="">
 </div>
 
-<!-- HOME -->
-<section id="home" class="hero active">
-    <div class="hero-content">
-        <h1><br><br><br>Best Foodstuff Trading Company In</h1>
-        <h2>Dubai</h2>
-        <p>Premium Quality Foodstuff Trading</p>
-    </div>
-</section>
 
-<!-- ABOUT -->
-<section id="about">
-    <h2>About Us</h2>
-    <div class="section-content">
-        <p>
-            HAYAT AL SHAM FOODSTUFF TRADING L.L.C is a Dubai-based company
-            specializing in premium quality foodstuff trading with a focus
-            on trust, reliability, and long-term partnerships.
-        </p>
-    </div>
-</section>
 
-<!-- CONTACT -->
-<section id="contact">
-    <h2>Contact Us</h2>
-    <div class="section-content">
-        <p><strong>📍 Address</strong><br>
-        I-SH/R 10, Block I, Saih Shuaib 2,<br>
-        Dubai Industrial City, Dubai, U.A.E</p><br>
+</div>
 
-        <p><strong>📞 Phone</strong><br>
-        +971 58 235 9196</p><br>
 
-        <p><strong>✉ Email</strong><br>
-        hayatalshamfoodstuff@gmail.com</p>
-    </div>
-</section>
+<!-- SERVICES -->
 
-<!-- FLOAT BUTTONS -->
-<a href="https://wa.me/971582359196" class="float-btn whatsapp-btn">💬</a>
+<div class="services">
+
+<h2>Premium Foodstuff Trading</h2>
+
+<p>
+
+HAYAT AL SHAM FOODSTUFF TRADING L.L.C is a trusted supplier of high-quality food products in Dubai.  
+We specialize in supplying premium spices, dry fruits, grocery items, seeds, and rice to retailers, wholesalers, and food businesses across the UAE.
+
+Our company focuses on delivering products that meet the highest standards of freshness, hygiene, and quality.  
+With a strong sourcing network and reliable logistics, we ensure consistent supply and customer satisfaction.
+
+Our mission is to build long-term partnerships with our clients by providing excellent service, competitive pricing, and reliable food distribution.
+
+</p>
+
+</div>
+
+<footer>
+© 2026 HAYAT AL SHAM FOODSTUFF TRADING L.L.C
+</footer>
+
+
+<script>
+
+let index=0;
+
+function slide(){
+
+index++;
+
+if(index>3){index=0;}
+
+document.getElementById("slides").style.transform="translateX(-"+(index*100)+"%)";
+
+}
+
+setInterval(slide,2000);
+
+</script>
+
 </body>
 </html>
